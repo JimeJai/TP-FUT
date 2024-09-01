@@ -1,0 +1,10 @@
+{
+  "teams": [
+    {
+      "id": "1",
+      "name": "string",
+      "description": "string",
+      "points": "string"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "players": [
+    {
+      "name": "string",
+      "position": "string",
+      "estado": "string",
+      "number": "number?",
+      "id": "eec7c571-8554-4027-bfa0-4510ca6943e6"
+    }
+  ]
+}

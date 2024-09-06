@@ -1,11 +1,1 @@
-{
-  "players": [
-    {
-      "name": "string",
-      "position": "string",
-      "estado": "string",
-      "number": "number?",
-      "id": "eec7c571-8554-4027-bfa0-4510ca6943e6"
-    }
-  ]
-}
+{"players":[{"name":"gags","position":"defensora","condition":"activa","numero":"2","id":"eec7c571-8554-4027-bfa0-4510ca6943e6"},{"name":"nach","position":"delantero","condition":"activo","numero":"9","id":"55a66ca6-0743-429f-a3f6-27e90a7a2ed6"},{"name":"fia","position":"arquera","condition":"activo","numero":"11","id":"1842a654-9286-4202-93c5-4fa74c124613"},{"name":"vicky","position":"delantera","condition":"inactiva","numero":"16","id":"5db91bb8-fe48-4df3-917d-068cec6c5782"},{"name":"jime","position":"defensora","condition":"inactiva","numero":"22","id":"4d06d01f-51d4-4447-b499-52b175d0abd9"},{"name":"flor","position":"defensora","condition":"activa","numero":"19","id":"bcac0bb7-5a19-4fe5-924a-1a6e78aa50ec"}]}

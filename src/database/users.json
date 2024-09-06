@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "name": "string",
+      "email": "string",
+      "id": "eec7c571-8554-4027-bfa0-4510ca6943e6"
+    },
+    {
+      "name": "jime",
+      "email": "jimehace@gmail.com",
+      "id": "c94b079e-b045-4c7a-a062-a9780e5f32b4"
+    },
+    {
+      "name": "sofi",
+      "email": "soficrack@gmail.com",
+      "id": "12b3bfe1-96b9-485e-aca6-ed95a5c95beb"
+    }
+  ]
+}

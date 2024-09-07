@@ -1,10 +1,9 @@
 import TeamsService from "../services/teams";
 import { NextFunction, Request, Response } from "express";
 class TeamsController {
-  static async getAll(req: Request, res: Response, next: NextFunction) {
-    //ese data tiene q servir para el .includes..?..no xq no me interesa esa busqueda
+  static async getByFilters(req: Request, res: Response, next: NextFunction) {
     try {
-      const db = await TeamsService.getAll();
+      const db = await TeamsService.getByFilters(req.query);
       res.status(200).json({ message: db });
     } catch (error) {
       next(error); //?
@@ -46,15 +45,6 @@ class TeamsController {
     try {
       const teamDeleted = await TeamsService.deleteById(req.params.id);
       res.status(200).json({ message: "Equipo eliminado", teamDeleted });
-    } catch (error) {
-      next(error);
-    }
-  }
-  static async getByName(req: Request, res: Response, next: NextFunction) {
-    try {
-      const team = await TeamsService.getByName(req.params.name); //params?
-
-      res.status(200).json({ message: team });
     } catch (error) {
       next(error);
     }

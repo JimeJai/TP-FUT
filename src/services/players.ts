@@ -4,11 +4,51 @@ import { validatePlayer, validatePlayerUp } from "../schemas/players";
 import { player } from "../utils/interfaz";
 
 class PlayersService {
-  static async getAll() {
+  static async getAll(where) {
     try {
       const db = await PlayersModel.read();
 
-      return db;
+      if (!where || Object.keys(where).length == 0) {
+        return db;
+      }
+
+      if (where.name) {
+        const players = db.players.filter((play) =>
+          play.name.includes(where.name)
+        );
+        if (Object.keys(players).length == 0) {
+          const error = new Error("Jugadore no encontrade");
+          error["statusCode"] = 400;
+
+          throw error;
+        }
+        return players;
+      }
+      if (where.condition) {
+        const playersAct = db.players.filter(
+          (play) => play.condition == where.condition
+        );
+        if (Object.keys(playersAct).length == 0) {
+          const error = new Error("Jugadore no encontrade");
+          error["statusCode"] = 400;
+
+          throw error;
+        }
+        return playersAct;
+      }
+
+      if (where.position) {
+        const playersPos = db.players.filter(
+          (play) => play.position == where.position
+        );
+        if (Object.keys(playersPos).length == 0) {
+          const error = new Error("Jugadore no encontrade");
+          error["statusCode"] = 400;
+
+          throw error;
+        }
+        return playersPos;
+      }
     } catch (error) {
       throw error;
     }
@@ -74,7 +114,7 @@ class PlayersService {
 
         throw error;
       }
-      const result = validatePlayerUp(data); //--------------validate player
+      const result = validatePlayerUp(data);
       if (!result.success) {
         const error = new Error("Datos inválidos"); //salta este mensaje y no los mensajes q tiene adentro la funcion ej: cantidad caracteres
         error["statusCode"] = 400;
@@ -124,7 +164,7 @@ class PlayersService {
       const player = db.players.find((player) => player.name == name); //aca no lo encuentra, es team.name?
 
       if (!player) {
-        const error = new Error("Equipo no encontrado");
+        const error = new Error("Jugadore no encontrado");
         error["statusCode"] = 400;
 
         throw error;

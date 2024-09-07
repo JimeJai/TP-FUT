@@ -3,12 +3,25 @@ import { v4 as uuidv4 } from "uuid";
 import { validateTeam, validateTeamUp } from "../schemas/teams";
 
 class TeamsService {
-  static async getAll() {
-    //ese data tiene q servir para el .includes..?..no xq no me interesa esa busqueda
+  static async getByFilters(where) {
     try {
       const db = await TeamsModel.read();
 
-      return db; //todos los equipos rivales y las desc, casi q quiero la db..asi es igual a lA funcion read del model
+      if (!where || Object.keys(where).length == 0) {
+        return db;
+      }
+
+      if (where.name) {
+        const teams = db.teams.filter((team) => team.name.includes(where.name));
+
+        if (Object.keys(teams).length == 0) {
+          const error = new Error("Equipo no encontrado");
+          error["statusCode"] = 400;
+
+          throw error;
+        }
+        return teams;
+      }
     } catch (error) {
       throw error;
     }
@@ -81,11 +94,13 @@ class TeamsService {
           return { ...team, ...data };
         } else return team;
       });
+      console.log(teams);
 
       db.teams = teams;
       await TeamsModel.write(db);
 
-      //--------------------------------------------tengo q retornar el nuevo team updated
+      const teamUpdated = await this.getById(id);
+      return teamUpdated;
     } catch (error) {
       throw error;
     }
@@ -103,33 +118,9 @@ class TeamsService {
       }
       let teams = db.teams.filter((team) => team.id != id);
       db.teams = teams;
-      console.log(db);
 
       await TeamsModel.write(db);
       return teamDeleted; //tengo q retornar el team eliminado
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  static async getByName(name) {
-    //queria usarlas de update y delete byId pero no me salio..(no entendi el map)
-    try {
-      const db = await TeamsModel.read();
-      //console.log(db);
-      // const team = db.teams.filter((te) => te.name == where.name);
-      //console.log(team);
-
-      const team = db.teams.find((team) => team.name == name); //aca no lo encuentra, es team.name?
-      //console.log(team);
-
-      if (!team) {
-        const error = new Error("Equipo no encontrado");
-        error["statusCode"] = 400;
-
-        throw error;
-      }
-      return team;
     } catch (error) {
       throw error;
     }

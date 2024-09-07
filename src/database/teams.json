@@ -1,1 +1,24 @@
-{"teams":[{"id":"1","name":"Black","description":"mejor equipo bestooo"},{"name":"birnet","description":"la 10 rubia es buena, la morocha grandota le pega del costado, son fuertes","id":"b76dd251-f5d5-4a21-92a9-9fe081aa44cb"},{"name":"hellfish","description":"triple campeonas, la 10 gambetea, la arquera es meh ","id":"67307885-b2fe-4f98-8d1d-f4a69a36ed76"},{"name":"2ghjj2","description":"dfghjkvb vbnm","id":"6df120c9-c6b0-493e-9c14-632eaa3ee42c"}]}
+{
+  "teams": [
+    {
+      "name": "Black",
+      "description": "mejor equipo ever :) ",
+      "id": "4d0d7077-efa5-415b-bcdd-20dffb91c0f6"
+    },
+    {
+      "name": "birnet",
+      "description": "la 10 rubia es buena, la morocha grandota le pega del costado, son fuertes",
+      "id": "b76dd251-f5d5-4a21-92a9-9fe081aa44cb"
+    },
+    {
+      "name": "hellfish",
+      "description": "triple campeonas, la 10 gambetea, la arquera es meh ",
+      "id": "67307885-b2fe-4f98-8d1d-f4a69a36ed76"
+    },
+    {
+      "name": "magicas",
+      "description": "a ver si retorna en las respuestas",
+      "id": "89faa9a6-558d-4dfe-a121-47fd0bbe48ec"
+    }
+  ]
+}

@@ -94,7 +94,6 @@ class TeamsService {
           return { ...team, ...data };
         } else return team;
       });
-      console.log(teams);
 
       db.teams = teams;
       await TeamsModel.write(db);

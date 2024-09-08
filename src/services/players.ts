@@ -99,10 +99,7 @@ class PlayersService {
     }
   }
 
-  static async updateById(
-    id: string,
-    data: player //----------datos de jugadore
-  ) {
+  static async updateById(id: string, data: player) {
     try {
       const db = await PlayersModel.read();
 
@@ -129,8 +126,8 @@ class PlayersService {
 
       db.players = players;
       await PlayersModel.write(db);
-
-      //--------------------------------------------tengo q retornar el nuevo team updated
+      const playerUpdated = await this.getById(id);
+      return playerUpdated;
     } catch (error) {
       throw error;
     }
@@ -156,24 +153,23 @@ class PlayersService {
     }
   }
 
-  static async getByName(name) {
-    //queria usarlas de update y delete byId pero no me salio..(no entendi el map)
-    try {
-      const db = await PlayersModel.read();
+  // static async getByName(name) {
+  //   try {
+  //     const db = await PlayersModel.read();
 
-      const player = db.players.find((player) => player.name == name); //aca no lo encuentra, es team.name?
+  //     const player = db.players.find((player) => player.name == name); //aca no lo encuentra, es team.name?
 
-      if (!player) {
-        const error = new Error("Jugadore no encontrado");
-        error["statusCode"] = 400;
+  //     if (!player) {
+  //       const error = new Error("Jugadore no encontrado");
+  //       error["statusCode"] = 400;
 
-        throw error;
-      }
-      return player;
-    } catch (error) {
-      throw error;
-    }
-  }
+  //       throw error;
+  //     }
+  //     return player;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
 }
 
 export default PlayersService;

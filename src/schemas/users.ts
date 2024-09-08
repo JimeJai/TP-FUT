@@ -50,3 +50,17 @@ export function validateRegisterUser(data) {
 export function validateLoginUser(data) {
   return loginUsers.safeParse(data);
 }
+
+const updatedUsers = z.object({
+  email: z
+    .string({
+      invalid_type_error: "Debe ser string",
+    })
+    .email("Debe enviar formato de email válido")
+    .optional(),
+  name: z.string({ invalid_type_error: "Debe ser string" }).optional(),
+});
+
+export function validateUpdatedUser(data) {
+  return updatedUsers.safeParse(data);
+}

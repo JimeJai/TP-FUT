@@ -1,13 +1,13 @@
 import { Router } from "express";
 import authRouter from "./auth";
 import teamsRouter from "./teams";
-import checkToken from "../middlewares/check-token";
 import playersRouter from "./players";
+import usersRouter from "./users";
 const indexRouter = Router();
 
-indexRouter.use("/auth", authRouter); //es use aca?
+indexRouter.use("/auth", authRouter);
 indexRouter.use("/players", playersRouter);
-indexRouter.use("/teams", teamsRouter); //para todo hace falta el token? o puedo ponerlo en las q me reescriben bd?
-// indexRouter.use("/users"); // no se  onda esto, nadie deberia poder acceder a los users
+indexRouter.use("/teams", teamsRouter);
+indexRouter.use("/users", usersRouter);
 
 export default indexRouter;

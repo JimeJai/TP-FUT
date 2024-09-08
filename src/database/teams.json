@@ -7,7 +7,7 @@
     },
     {
       "name": "birnet",
-      "description": "la 10 rubia es buena, la morocha grandota le pega del costado, son fuertes",
+      "description": "son fuertes, la 10 rubia juega, no la dejemos recibir",
       "id": "b76dd251-f5d5-4a21-92a9-9fe081aa44cb"
     },
     {
@@ -17,8 +17,18 @@
     },
     {
       "name": "magicas",
-      "description": "a ver si retorna en las respuestas",
+      "description": "son todas muy altas, las q usan cuellito son buenas",
       "id": "89faa9a6-558d-4dfe-a121-47fd0bbe48ec"
+    },
+    {
+      "name": "buen punto",
+      "description": "nivel tranqui, ex niupis",
+      "id": "0f1048e1-5b7c-4369-ad0f-8c07c14ef0d4"
+    },
+    {
+      "name": "nuevo equipo",
+      "description": "chequeando documentaicon api en postman",
+      "id": "8dddc98c-8332-4c92-9c1b-49cba1ebc614"
     }
   ]
 }

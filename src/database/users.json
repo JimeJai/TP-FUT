@@ -1,12 +1,7 @@
 {
   "users": [
     {
-      "name": "string",
-      "email": "string",
-      "id": "eec7c571-8554-4027-bfa0-4510ca6943e6"
-    },
-    {
-      "name": "jime",
+      "name": "jimeJai",
       "email": "jimehace@gmail.com",
       "id": "c94b079e-b045-4c7a-a062-a9780e5f32b4"
     },
@@ -19,6 +14,11 @@
       "name": "camus",
       "email": "jie@gmail.com",
       "id": "44781dc3-48d6-48e2-8f75-36e8a5c85c9f"
+    },
+    {
+      "name": "koda",
+      "email": "cocos@gmail.com",
+      "id": "da695f8a-b0db-485d-b310-3e262f58a25f"
     }
   ]
 }

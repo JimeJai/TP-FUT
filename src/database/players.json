@@ -3,51 +3,86 @@
     {
       "name": "gags",
       "position": "defensora",
-      "condition": "activ",
+      "condition": "active",
       "numero": "2",
       "id": "eec7c571-8554-4027-bfa0-4510ca6943e6"
     },
     {
       "name": "nach",
       "position": "atacante",
-      "condition": "activ",
+      "condition": "active",
       "numero": "9",
       "id": "55a66ca6-0743-429f-a3f6-27e90a7a2ed6"
     },
     {
       "name": "fia",
       "position": "arquera",
-      "condition": "activ",
+      "condition": "active",
       "numero": "11",
       "id": "1842a654-9286-4202-93c5-4fa74c124613"
     },
     {
       "name": "vicky",
       "position": "atacante",
-      "condition": "inactiv",
+      "condition": "inactive",
       "numero": "16",
       "id": "5db91bb8-fe48-4df3-917d-068cec6c5782"
     },
     {
       "name": "jime",
       "position": "defensora",
-      "condition": "inactiv",
+      "condition": "inactive",
       "numero": "22",
       "id": "4d06d01f-51d4-4447-b499-52b175d0abd9"
     },
     {
       "name": "flor",
       "position": "defensora",
-      "condition": "activ",
+      "condition": "active",
       "numero": "19",
       "id": "bcac0bb7-5a19-4fe5-924a-1a6e78aa50ec"
     },
     {
       "name": "Peli",
       "position": "defensora",
-      "condition": "activ",
+      "condition": "active",
       "numero": "8",
       "id": "055ccd0e-2638-42ed-a7c2-a5a03e0efc58"
+    },
+    {
+      "name": "valenchu",
+      "position": "atacante",
+      "condition": "active",
+      "numero": "18",
+      "id": "0c8d091c-d028-450e-82b7-64e4c4244bf5"
+    },
+    {
+      "name": "luchi",
+      "position": "defensora",
+      "condition": "active",
+      "numero": "3",
+      "id": "d0d3c3d6-18b9-40e9-bff4-0477c1243e62"
+    },
+    {
+      "name": "nati",
+      "position": "atacante",
+      "condition": "active",
+      "numero": "7",
+      "id": "754497da-7505-45d3-8bad-fe85d5a0326a"
+    },
+    {
+      "name": "gushis",
+      "position": "defensora",
+      "condition": "inactive",
+      "numero": "14",
+      "id": "014fdb56-712b-4baf-bd95-19d206ea2d2f"
+    },
+    {
+      "name": "jessy",
+      "position": "la capi",
+      "condition": "inactive",
+      "numero": "12",
+      "id": "91771678-7e0e-4238-8fd6-a1a6e8fffd32"
     }
   ]
 }

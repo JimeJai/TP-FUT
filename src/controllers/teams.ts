@@ -6,11 +6,10 @@ class TeamsController {
       const db = await TeamsService.getByFilters(req.query);
       res.status(200).json({ message: db });
     } catch (error) {
-      next(error); //?
+      next(error);
     }
   }
   static async create(req: Request, res: Response, next: NextFunction) {
-    //valida q le llega una description y un nombre y le crea un id. schemas para descript..
     try {
       const newTeam = await TeamsService.create(req.body);
       res.status(200).json({ message: "Equipo creado", newTeam });
@@ -35,7 +34,7 @@ class TeamsController {
         req.body
       );
 
-      res.status(200).json({ message: "Equipo actualizado", teamUpdated }); //no me retorna nada en teamUpdated
+      res.status(200).json({ message: "Equipo actualizado", teamUpdated });
     } catch (error) {
       next(error);
     }

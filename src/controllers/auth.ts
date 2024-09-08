@@ -1,5 +1,3 @@
-// recibe req res y next y responde con res.status..
-//llama al authservice
 import AuthService from "../services/auth";
 
 class AuthController {
@@ -10,9 +8,6 @@ class AuthController {
     } catch (error) {
       next(error);
     }
-    //?
-    //recibo algo de authservice
-    //y res.status..
   }
 
   static async login(req, res, next) {
@@ -22,9 +17,6 @@ class AuthController {
     } catch (error) {
       next(error);
     }
-    //le tengo q mandar algo al servicio para q labure con eso
-    //recibo algo de authservice
-    //y res.status..
   }
 
   static async logout(req, res, netx) {

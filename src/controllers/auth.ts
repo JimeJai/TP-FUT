@@ -19,11 +19,14 @@ class AuthController {
     }
   }
 
-  static async logout(req, res, netx) {
-    // no se si hace falta hacerlo
-    //le tengo q mandar algo al servicio para q labure con eso
-    //recibo algo de authservice
-    //y res.status..
+  static async logout(req, res, next) {
+    //no se si hace falta
+    try {
+      await AuthService.logout(req.body);
+      res.status(201).json({ message: "Usuario des?logueado" }); //no retorna token ya q lo borro
+    } catch (error) {
+      next(error);
+    }
   }
 }
 

@@ -2,6 +2,7 @@ import UsersModel from "../models/users";
 import { v4 as uuidv4 } from "uuid";
 import { validateUpdatedUser } from "../schemas/users";
 import checkToken from "../middlewares/check-token";
+import AuthModel from "../models/auth";
 
 class UsersService {
   static async create(data: { name: string; email: string }) {
@@ -22,29 +23,29 @@ class UsersService {
     return db;
   }
 
-  static async getByFilters(where) {
-    try {
-      const db = await UsersModel.read();
+  // static async getByFilters(where) {
+  //   try {
+  //     const db = await UsersModel.read();
 
-      if (!where || Object.keys(where).length == 0) {
-        return db;
-      }
+  //     if (!where || Object.keys(where).length == 0) {
+  //       return db;
+  //     }
 
-      if (where.email) {
-        const user = db.users.find((user) => user.email == where.email);
+  //     if (where.email) {
+  //       const user = db.users.find((user) => user.email == where.email);
 
-        if (!user) {
-          const error = new Error("Usuario no encontrado");
-          error["statusCode"] = 400;
+  //       if (!user) {
+  //         const error = new Error("Usuario no encontrado");
+  //         error["statusCode"] = 400;
 
-          throw error;
-        }
-        return user;
-      }
-    } catch (error) {
-      throw error;
-    }
-  }
+  //         throw error;
+  //       }
+  //       return user;
+  //     }
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
 
   static async getById(id: string) {
     //queria usarlas de update y delete byId pero no me salio..(no entendi el map)
@@ -103,7 +104,7 @@ class UsersService {
       const db = await UsersModel.read();
       const userDeleted = db.users.find((user) => user.id == id);
       if (!userDeleted) {
-        const error = new Error("Equipo no encontrado");
+        const error = new Error("Usuario no encontrado");
         error["statusCode"] = 400;
 
         throw error;
@@ -112,6 +113,16 @@ class UsersService {
       db.users = users;
 
       await UsersModel.write(db);
+
+      const authDb = await AuthModel.read();
+      console.log(authDb);
+
+      const auths = authDb.auth.filter((auth) => auth.userId != id);
+      console.log(auths);
+
+      authDb.auths = auths;
+      await AuthModel.write(authDb);
+
       return userDeleted; //tengo q retornar el user eliminado
     } catch (error) {
       throw error;

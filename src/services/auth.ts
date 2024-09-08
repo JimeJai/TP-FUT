@@ -68,6 +68,10 @@ class AuthService {
 
         throw error;
       }
+      const token = createHash(uuidv4());
+      userAuthFound.token = token;
+
+      await AuthModel.write(authDb);
 
       return userAuthFound.token;
     } catch (error) {
@@ -78,6 +82,29 @@ class AuthService {
     //para eso lee la db del user(tiene el email) => llama al servicio del user q accede al model del user? de ahi saca el ID
     //y busca ese id en la db del auth y de ahi chequea q la pass enviada x parametro concuerde. (no se cuando va el userId)
     // si es match entonces le retorna token
+  }
+
+  static async logout(data) {
+    try {
+      //console.log(data.token);
+
+      const authDb = await AuthModel.read();
+
+      const auth = authDb.auth.find((auth) => auth.token == data.token);
+
+      if (!auth) {
+        const error = new Error("token no encontrado");
+        error["statusCode"] = 404;
+
+        throw error;
+      }
+
+      auth.token = null;
+
+      await AuthModel.write(authDb);
+    } catch (error) {
+      throw error;
+    }
   }
 }
 

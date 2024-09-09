@@ -1,6 +1,6 @@
 INSTRUCTIVO API FUTBOL
 http://tp-fut-1.onrender.com
-localhost:8080
+desde postman: localhost:8080
 
 AUTH: En el auth contamos con la parte de registro, login y logout. Que generan las bases de datos de auth y users.
 Desde Postman
@@ -29,7 +29,7 @@ necesita recibir en el body el token a elimminar:
 //-----------------------------------------------------------------------------------------------------------
 
 USERS: En el users tambien se generan cambios en las bases de datos de auth y users.
-Patch y Delete desde postman.
+Patch y Delete desde postman
 
 ---> Peticiones posibles:
 

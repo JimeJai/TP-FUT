@@ -1,4 +1,4 @@
-import crypto from "crypto"; //nativo de node
+import crypto from "crypto";
 
 function createHash(data: string) {
   const hash = crypto.createHash("sha256");

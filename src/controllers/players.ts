@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 class PlayersController {
   static async getByFilters(req: Request, res: Response, next: NextFunction) {
     try {
-      const players = await PlayersService.getAll(req.query); //params?req.query
+      const players = await PlayersService.getAll(req.query);
 
       res.status(200).json({ message: players });
     } catch (error) {
@@ -21,7 +21,7 @@ class PlayersController {
   }
   static async getById(req: Request, res: Response, next: NextFunction) {
     try {
-      const player = await PlayersService.getById(req.params.id); //params?
+      const player = await PlayersService.getById(req.params.id);
 
       res.status(200).json({ message: player });
     } catch (error) {
@@ -35,7 +35,6 @@ class PlayersController {
         req.params.id,
         req.body
       );
-      //console.log(playerUpdated);
 
       res.status(200).json({ message: "Jugadore actualizado", playerUpdated }); //no me retorna nada en teamUpdated
     } catch (error) {

@@ -122,3 +122,4 @@ Requiere Token y en el body los datos para crear equipo, ej:
 }
 
 //---------------------------------------------------------------------------------------------------
+Jimena Miramontes

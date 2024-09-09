@@ -51,7 +51,6 @@ class TeamsService {
     }
   }
   static async getById(id: string) {
-    //queria usarlas de update y delete byId pero no me salio..(no entendi el map)
     try {
       const db = await TeamsModel.read();
       const team = db.teams.find((team) => team.id == id);
@@ -84,7 +83,7 @@ class TeamsService {
       }
       const result = validateTeamUp(data);
       if (!result.success) {
-        const error = new Error("Datos inválidos"); //salta este mensaje y no los mensajes q tiene adentro la funcion ej: cantidad caracteres
+        const error = new Error("Datos inválidos");
         error["statusCode"] = 400;
 
         throw error;
@@ -119,7 +118,7 @@ class TeamsService {
       db.teams = teams;
 
       await TeamsModel.write(db);
-      return teamDeleted; //tengo q retornar el team eliminado
+      return teamDeleted;
     } catch (error) {
       throw error;
     }

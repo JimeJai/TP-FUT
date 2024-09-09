@@ -41,7 +41,6 @@ const loginUsers = z
       }),
   })
   .strict();
-//si decido q players y users sean lo mismo tengo q agregarle las propiedades
 
 export function validateRegisterUser(data) {
   return registerUsers.safeParse(data);

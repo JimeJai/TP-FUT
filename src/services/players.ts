@@ -57,8 +57,7 @@ class PlayersService {
     try {
       const id = uuidv4();
       const { name, position, condition, numero } = data;
-      const result = validatePlayer(data); //-------validar jugadoras
-
+      const result = validatePlayer(data);
       if (!result.success) {
         const error = new Error("Datos inválidos");
         error["statusCode"] = 400;
@@ -71,7 +70,7 @@ class PlayersService {
         condition: condition,
         numero: numero,
         id: id,
-      }; //--------otros datos
+      };
 
       const db = await PlayersModel.read();
 
@@ -113,7 +112,7 @@ class PlayersService {
       }
       const result = validatePlayerUp(data);
       if (!result.success) {
-        const error = new Error("Datos inválidos"); //salta este mensaje y no los mensajes q tiene adentro la funcion ej: cantidad caracteres
+        const error = new Error("Datos inválidos");
         error["statusCode"] = 400;
 
         throw error;
@@ -147,29 +146,11 @@ class PlayersService {
       db.players = players;
 
       await PlayersModel.write(db);
-      return playerDeleted; //tengo q retornar el team eliminado
+      return playerDeleted;
     } catch (error) {
       throw error;
     }
   }
-
-  // static async getByName(name) {
-  //   try {
-  //     const db = await PlayersModel.read();
-
-  //     const player = db.players.find((player) => player.name == name); //aca no lo encuentra, es team.name?
-
-  //     if (!player) {
-  //       const error = new Error("Jugadore no encontrado");
-  //       error["statusCode"] = 400;
-
-  //       throw error;
-  //     }
-  //     return player;
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
 }
 
 export default PlayersService;

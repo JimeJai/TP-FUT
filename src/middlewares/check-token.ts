@@ -7,7 +7,7 @@ async function checkToken(req: Request, res: Response, next: NextFunction) {
     return res.status(400).json({ message: "El token es obligatorio" });
 
   const authDb = await AuthModel.read();
-  const user = authDb.auth.find((auth) => auth.token == token); //aca cuando encuentra devuelve un objeto vacio
+  const user = authDb.auth.find((auth) => auth.token == token);
 
   if (!user) return res.status(401).json({ message: "token inválido" });
 

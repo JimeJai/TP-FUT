@@ -12,8 +12,7 @@ class UsersController {
   }
   static async getById(req: Request, res: Response, next: NextFunction) {
     try {
-      const user = await UsersService.getById(req.params.id); //params?
-
+      const user = await UsersService.getById(req.params.id);
       res.status(200).json({ message: user });
     } catch (error) {
       next(error);

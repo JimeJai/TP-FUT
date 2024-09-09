@@ -20,7 +20,6 @@ class AuthController {
   }
 
   static async logout(req, res, next) {
-    //no se si hace falta
     try {
       await AuthService.logout(req.body);
       res.status(201).json({ message: "Usuario des?logueado" }); //no retorna token ya q lo borro

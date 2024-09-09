@@ -23,30 +23,6 @@ class UsersService {
     return db;
   }
 
-  // static async getByFilters(where) {
-  //   try {
-  //     const db = await UsersModel.read();
-
-  //     if (!where || Object.keys(where).length == 0) {
-  //       return db;
-  //     }
-
-  //     if (where.email) {
-  //       const user = db.users.find((user) => user.email == where.email);
-
-  //       if (!user) {
-  //         const error = new Error("Usuario no encontrado");
-  //         error["statusCode"] = 400;
-
-  //         throw error;
-  //       }
-  //       return user;
-  //     }
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
-
   static async getById(id: string) {
     //queria usarlas de update y delete byId pero no me salio..(no entendi el map)
     try {
@@ -76,9 +52,9 @@ class UsersService {
 
         throw error;
       }
-      const result = validateUpdatedUser(data); //deberia validar q me mande o email o name
+      const result = validateUpdatedUser(data);
       if (!result.success) {
-        const error = new Error("Datos inválidos"); //salta este mensaje y no los mensajes q tiene adentro la funcion ej: cantidad caracteres
+        const error = new Error("Datos inválidos");
         error["statusCode"] = 400;
 
         throw error;
@@ -115,15 +91,13 @@ class UsersService {
       await UsersModel.write(db);
 
       const authDb = await AuthModel.read();
-      // console.log(authDb);
 
       const auths = authDb.auth.filter((auth) => auth.userId != id);
-      // console.log(auths);
 
       authDb.auth = auths;
       await AuthModel.write(authDb);
 
-      return user; //tengo q retornar el user eliminado
+      return user;
     } catch (error) {
       throw error;
     }

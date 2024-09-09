@@ -1,5 +1,3 @@
-//escribe y lee sobre la base de datos del auth
-//van solo read y write creo
 import { writeFile, readFile } from "jsonfile";
 
 class AuthModel {

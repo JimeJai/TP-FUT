@@ -102,8 +102,8 @@ class UsersService {
   static async deleteById(id: string) {
     try {
       const db = await UsersModel.read();
-      const userDeleted = db.users.find((user) => user.id == id);
-      if (!userDeleted) {
+      const user = db.users.find((user) => user.id == id);
+      if (!user) {
         const error = new Error("Usuario no encontrado");
         error["statusCode"] = 400;
 
@@ -115,15 +115,15 @@ class UsersService {
       await UsersModel.write(db);
 
       const authDb = await AuthModel.read();
-      console.log(authDb);
+      // console.log(authDb);
 
       const auths = authDb.auth.filter((auth) => auth.userId != id);
-      console.log(auths);
+      // console.log(auths);
 
-      authDb.auths = auths;
+      authDb.auth = auths;
       await AuthModel.write(authDb);
 
-      return userDeleted; //tengo q retornar el user eliminado
+      return user; //tengo q retornar el user eliminado
     } catch (error) {
       throw error;
     }

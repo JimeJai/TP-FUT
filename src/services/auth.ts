@@ -60,7 +60,9 @@ class AuthService {
       }
       //aca va una validacion de q me mandaron email y pass? ccon un nuevo zod?
       const user = await UsersService.getByEmail(email); //encuentra usuario en bd de users con ese email
+
       const authDb = await AuthModel.read();
+
       const userAuthFound = authDb.auth.find((auth) => auth.userId == user.id); //busca en auth el idUser q sea igual al id del user de ese email
       if (userAuthFound.pass != createHash(pass)) {
         const error = new Error("Contraseña incorrecta");
@@ -68,8 +70,9 @@ class AuthService {
 
         throw error;
       }
-      const token = createHash(uuidv4());
-      userAuthFound.token = token;
+      const token = createHash(uuidv4()); //aca tengo q crear logica de creacion de un nuevo token
+      //tengo q pushear en el userAuthFound el nuevo token
+      userAuthFound.token = token; //tengo q guardarlo en la db de auth el nuevo auth con el token
 
       await AuthModel.write(authDb);
 
